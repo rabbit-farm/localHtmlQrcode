@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优质兔业养殖公司 - 专业兔肉供应商</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+            color: #e0e0e0;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 30%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .main-container {
+            max-width: 1400px;
+            margin: 30px auto;
+            background: rgba(15, 15, 15, 0.9);
+            border-radius: 20px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.6),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3730a3 100%);
+            position: relative;
+            color: white;
+            padding: 70px 30px;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: bgMove 25s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes bgMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #ffffff, #e0f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .nav-tabs {
+            border-bottom: none;
+            padding: 0;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-tabs .nav-link {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            padding: 18px 35px;
+            border: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            background: transparent;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .nav-tabs .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            transform: translateX(-50%);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-tabs .nav-link:hover {
+            color: rgba(255, 255, 255, 0.95);
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: #fff;
+            background: rgba(59, 130, 246, 0.15);
+        }
+        
+        .nav-tabs .nav-link.active::before {
+            width: 80%;
+        }
+        
+        .tab-content {
+            padding: 50px;
+            background: transparent;
+        }
+        
+        .tab-content h2 {
+            color: #fff;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        .tab-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            border-radius: 2px;
+        }
+        
+        .info-card {
+            background: rgba(30, 30, 30, 0.6);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .info-card:hover {
+            background: rgba(40, 40, 40, 0.7);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .info-card h5 {
+            color: #3b82f6;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card p {
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .info-card ul {
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+            padding-left: 25px;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        
+        .info-card li {
+            margin-bottom: 10px;
+        }
+        
+        .product-card {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 30px;
+            height: 100%;
+            background: rgba(25, 25, 25, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(59, 130, 246, 0.3),
+                0 0 0 1px rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .product-card:hover .product-img::before {
+            opacity: 1;
+        }
+        
+        .product-body {
+            padding: 25px;
+            background: rgba(15, 15, 15, 0.5);
+        }
+        
+        .product-body h5 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .product-body p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .product-price {
+            color: #fbbf24;
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 10px rgba(251, 191, 36, 0.2);
+        }
+        
+        .scale-item {
+            background: rgba(30, 41, 59, 0.6);
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            border-radius: 18px;
+            padding: 35px;
+            text-align: center;
+            margin-bottom: 25px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scale-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(55, 48, 163, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+        
+        .scale-item:hover::before {
+            opacity: 1;
+        }
+        
+        .scale-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .scale-item > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .scale-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #3b82f6;
+            transition: color 0.3s ease;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .scale-item:hover .scale-number {
+            color: #bfdbfe;
+        }
+        
+        .scale-item h5 {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .scale-item p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .scale-item:hover p {
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .benefit-item {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(55, 48, 163, 0.2) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .benefit-item:hover::before {
+            left: 100%;
+        }
+        
+        .benefit-item:hover {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(55, 48, 163, 0.3) 100%);
+            transform: translateX(8px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.25);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .benefit-item h5 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .benefit-item p {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+        }
+        
+        .qrcode-section {
+            text-align: center;
+            padding: 50px;
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 20px;
+            margin: 40px 50px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .qrcode-section h4 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        
+        .qrcode-box {
+            display: inline-block;
+            padding: 30px;
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 20px;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .qrcode-box:hover {
+            transform: scale(1.03);
+            box-shadow: 
+                0 20px 45px rgba(59, 130, 246, 0.3),
+                inset 0 0 0 1px rgba(59, 130, 246, 0.3);
+        }
+        
+        .qrcode-box p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+        }
+        
+        .footer {
+            background: rgba(10, 10, 10, 0.9);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer p {
+            margin: 8px 0;
+            letter-spacing: 0.5px;
+            font-size: 1rem;
+        }
+        
+        /* 移动端适配 */
+        @media (max-width: 992px) {
+            .main-container {
+                margin: 15px;
+                border-radius: 16px;
+            }
+            
+            .header {
+                padding: 50px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .tab-content {
+                padding: 30px 20px;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 15px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .tab-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .product-img {
+                height: 180px;
+                font-size: 2.5rem;
+            }
+            
+            .scale-item {
+                padding: 25px;
+            }
+            
+            .scale-number {
+                font-size: 2.5rem;
+            }
+            
+            .qrcode-section {
+                margin: 30px 20px;
+                padding: 30px 20px;
+            }
+            
+            .qrcode-box {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 12px 15px;
+                font-size: 0.85rem;
+                flex: 1 0 auto;
+                text-align: center;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+            
+            .tab-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .info-card, .product-card, .scale-item, .benefit-item {
+                margin-bottom: 20px;
+            }
+            
+            .product-img {
+                height: 160px;
+                font-size: 2rem;
+            }
+            
+            .scale-number {
+                font-size: 2.2rem;
+            }
+            
+            .product-price {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-container {
+                margin: 10px;
+                border-radius: 12px;
+            }
+            
+            .header {
+                padding: 40px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 10px 8px;
+                font-size: 0.8rem;
+            }
+            
+            .tab-content {
+                padding: 20px 15px;
+            }
+            
+            .tab-content h2 {
+                font-size: 1.4rem;
+            }
+            
+            .info-card {
+                padding: 20px;
+            }
+            
+            .product-img {
+                height: 140px;
+            }
+            
+            .product-body {
+                padding: 20px;
+            }
+            
+            .scale-item {
+                padding: 20px;
+            }
+            
+            .scale-number {
+                font-size: 2rem;
+            }
+            
+            .benefit-item {
+                padding: 20px;
+            }
+            
+            .qrcode-section {
+                margin: 20px 15px;
+                padding: 25px 15px;
+            }
+            
+            .qrcode-section h4 {
+                font-size: 1.3rem;
+            }
+            
+            .footer p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>🐰 优质兔业养殖公司</h1>
+            <p>专业养殖 · 品质保证 · 健康美味</p>
+        </div>
+        
+        <ul class="nav nav-tabs" id="mainTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="intro-tab" data-bs-toggle="tab" data-bs-target="#intro" type="button" role="tab">
+                    公司简介
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab">
+                    产品展示
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="scale-tab" data-bs-toggle="tab" data-bs-target="#scale" type="button" role="tab">
+                    养殖规模
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="benefits-tab" data-bs-toggle="tab" data-bs-target="#benefits" type="button" role="tab">
+                    兔肉功效
+                </button>
+            </li>
+        </ul>
+        
+        <div class="tab-content" id="mainTabContent">
+            <!-- 公司简介 -->
+            <div class="tab-pane fade show active" id="intro" role="tabpanel">
+                <h2 class="mb-4">关于我们</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>🏢 公司名称</h5>
+                            <p>优质兔业养殖有限公司</p>
+                        </div>
+                        <div class="info-card">
+                            <h5>📅 成立时间</h5>
+                            <p>2015年3月</p>
+                        </div>
+                        <div class="info-card">
+                            <h5>📍 公司地址</h5>
+                            <p>中国·山东省临沂市兰山区现代农业产业园</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                        <h5>📞 联系电话</h5>
+                            <p>400-888-6666</p>
+                        </div>
+                        <div class="info-card">
+                            <h5>📧 电子邮箱</h5>
+                            <p>info@rabbit-farm.com</p>
+                        </div>
+                        <div class="info-card">
+                            <h5>🌐 官方网站</h5>
+                            <p>www.rabbit-farm.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card mt-3">
+                    <h5>📜 公司介绍</h5>
+                    <p>优质兔业养殖有限公司成立于2015年，是一家集兔子养殖、加工、销售为一体的现代化农业企业。公司拥有先进的养殖技术和完善的管理体系，致力于为消费者提供健康、安全、优质的兔肉产品。我们坚持绿色养殖理念，采用科学的饲养方法，确保每一只兔子都在优质的环境中健康成长。</p>
+                    <p class="mt-3">经过多年的发展，公司已成为行业内知名的兔肉供应商，产品远销全国各地，深受消费者喜爱。我们始终秉承"质量第一、客户至上"的经营理念，不断创新发展，为推动我国兔业发展贡献力量。</p>
+                </div>
+            </div>
+            
+            <!-- 产品展示 -->
+            <div class="tab-pane fade" id="products" role="tabpanel">
+                <h2 class="mb-4">产品展示</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-img">🐇</div>
+                            <div class="product-body">
+                                <h5>🌱 新鲜兔肉</h5>
+                                <p class="product-price">¥45/斤</p>
+                                <p>精选优质肉兔，肉质细嫩，营养丰富，当天宰杀，新鲜配送。无抗生素养殖，健康安全。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-img">🍲</div>
+                            <div class="product-body">
+                                <h5>🔥 兔肉火锅套餐</h5>
+                                <p class="product-price">¥128/套</p>
+                                <p>精心搭配的火锅套餐，包含多个部位的兔肉，适合家庭聚餐。附赠秘制蘸料。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-img">🍖</div>
+                            <div class="product-body">
+                                <h5>🍂 腊兔肉</h5>
+                                <p class="product-price">¥88/斤</p>
+                                <p>传统工艺腌制，风味独特，开袋即食，送礼佳品。保质期长达6个月。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-img">🍗</div>
+                            <div class="product-body">
+                                <h5>🍖 兔腿</h5>
+                                <p class="product-price">¥35/只</p>
+                                <p>优质兔后腿，肉质肥美，适合烧烤、红烧等多种烹饪方式。真空包装保鲜。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-img">🥘</div>
+                            <div class="product-body">
+                                <h5>🍡 兔肉丸</h5>
+                                <p class="product-price">¥25/包</p>
+                                <p>精选兔肉制作，Q弹爽滑，火锅必备，健康美味。每包约500克。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-img">🌭</div>
+                            <div class="product-body">
+                                <h5>🌶️ 兔肉香肠</h5>
+                                <p class="product-price">¥38/包</p>
+                                <p>纯兔肉制作，无添加剂，营养健康，老少皆宜。多种口味可选。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 养殖规模 -->
+            <div class="tab-pane fade" id="scale" role="tabpanel">
+                <h2 class="mb-4">养殖规模</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="scale-item">
+                            <div class="scale-number">5</div>
+                            <h5>🏭 养殖基地</h5>
+                            <p>分布在山东、河北等地</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="scale-item">
+                            <div class="scale-number">50000+</div>
+                            <h5>🐰 年出栏量</h5>
+                            <p>年出栏肉兔超过5万只</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="scale-item">
+                            <div class="scale-number">200</div>
+                            <h5>🌾 占地面积</h5>
+                            <p>总占地面积200余亩</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card mt-4">
+                    <h5>🏭 主要养殖基地</h5>
+                    <ul>
+                        <li><strong>临沂基地：</strong>位于山东省临沂市兰山区，占地80亩，年出栏2万只</li>
+                        <li><strong>菏泽基地：</strong>位于山东省菏泽市，占地60亩，年出栏1.5万只</li>
+                        <li><strong>邯郸基地：</strong>位于河北省邯郸市，占地40亩，年出栏1万只</li>
+                        <li><strong>德州基地：</strong>位于山东省德州市，占地20亩，种兔繁育基地</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h5>⏱️ 养殖周期</h5>
+                    <p>从仔兔到出栏，标准养殖周期为90-120天。我们采用科学的饲养管理体系，确保兔子在最佳状态下出栏，保证肉质品质。全程采用自动化喂养系统，严格控制饲料配比和生长环境。</p>
+                </div>
+            </div>
+            
+            <!-- 兔肉功效 -->
+            <div class="tab-pane fade" id="benefits" role="tabpanel">
+                <h2 class="mb-4">兔肉功效</h2>
+                <div class="benefit-item">
+                    <h5>💪 高蛋白低脂肪</h5>
+                    <p>兔肉蛋白质含量高达21.5%，脂肪含量仅为3.8%，是理想的健身减肥食材。相比猪肉，兔肉的脂肪含量要低得多，更适合现代人的健康需求。</p>
+                </div>
+                <div class="benefit-item">
+                    <h5>❤️ 保护心血管</h5>
+                    <p>兔肉富含卵磷脂，能够抑制血小板凝聚，防止血栓形成，对高血压、冠心病患者有保护作用。同时兔肉胆固醇含量低，有助于维护心血管健康。</p>
+                </div>
+                <div class="benefit-item">
+                    <h5>🧠 增强记忆力</h5>
+                    <p>兔肉含有丰富的卵磷脂，这是大脑和神经组织中不可缺少的营养物质，有助于增强记忆力，特别适合儿童和老年人食用。</p>
+                </div>
+                <div class="benefit-item">
+                    <h5>🌟 美容养颜</h5>
+                    <p>兔肉富含维生素B族和烟酸，能够促进皮肤新陈代谢，使皮肤细嫩光滑。同时兔肉中的胶原蛋白也有助于保持皮肤弹性。</p>
+                </div>
+                <div class="benefit-item">
+                    <h5>🔥 易于消化吸收</h5>
+                    <p>兔肉肉质细嫩，纤维细腻，极易消化吸收，消化率可达85%以上。特别适合老人、儿童、病人及消化功能较弱的人群食用。</p>
+                </div>
+                <div class="benefit-item">
+                    <h5>🏃 适合运动人群</h5>
+                    <p>兔肉富含优质蛋白质和多种氨基酸，脂肪含量低，是健身、减肥人群的理想食材。能够提供充足的营养，同时不会造成脂肪堆积。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 优质兔业养殖有限公司 版权所有</p>
+            <p>联系电话: 400-888-6666 | 邮箱: info@rabbit-farm.com</p>
+            <p>食品安全认证: SC12345678901234 | 农业产业化重点龙头企业</p>
+            <p>合作品牌: 盒马鲜生 | 永辉超市 | 京东生鲜 | 天猫超市</p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Tab切换动画效果
+            $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                $(e.target.getAttribute('data-bs-target')).hide().fadeIn(600);
+            });
+            
+            // 产品卡片悬停效果
+            $('.product-card').hover(
+                function() {
+                    $(this).find('.product-img').css('transform', 'scale(1.1)');
+                },
+                function() {
+                    $(this).find('.product-img').css('transform', 'scale(1)');
+                }
+            );
+            
+            // 养殖规模数字动画
+            $('.scale-number').each(function() {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now) {
+                        if ($(this).text().includes('+')) {
+                            $(this).text(Math.ceil(now) + '+');
+                        } else {
+                            $(this).text(Math.ceil(now));
+                        }
+                    }
+                });
+            });
+            
+            console.log('优质兔业养殖公司网站已加载完成！');
+        });
+    </script>
+</body>
+</html>
