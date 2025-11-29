@@ -14,12 +14,12 @@
         
         body {
             font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background: #0a0a0a;
+            background: #f5f5f5;
             min-height: 100vh;
             padding: 0;
             overflow-x: hidden;
             position: relative;
-            color: #e0e0e0;
+            color: #333;
         }
         
         body::before {
@@ -30,9 +30,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 30%);
+                radial-gradient(circle at 10% 20%, rgba(255, 102, 0, 0.02) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 102, 0, 0.015) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.01) 0%, transparent 30%);
             z-index: -1;
             pointer-events: none;
         }
@@ -40,42 +40,65 @@
         .main-container {
             max-width: 1400px;
             margin: 30px auto;
-            background: rgba(15, 15, 15, 0.9);
+            background: #ffffff;
             border-radius: 20px;
             box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.6),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+                0 20px 50px rgba(0, 0, 0, 0.2),
+                inset 0 0 0 1px rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            backdrop-filter: blur(15px);
             position: relative;
             z-index: 1;
         }
         
+        .banner-image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            animation-delay: 0.1s;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
         .header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3730a3 100%);
+            background: linear-gradient(135deg, #ff6600 0%, #ff8c42 50%, #ff6600 100%);
             position: relative;
             color: white;
             padding: 70px 30px;
             text-align: center;
             overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
         }
         
-        .header::before {
-            content: '';
+        .header-bg-image {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: bgMove 25s linear infinite;
-            z-index: 0;
-        }
-        
-        @keyframes bgMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(40px, 40px); }
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
         }
         
         .header h1 {
@@ -85,47 +108,52 @@
             letter-spacing: 1px;
             position: relative;
             z-index: 1;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(to right, #ffffff, #e0f2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
         }
         
         .header p {
             font-size: 1.3rem;
-            opacity: 0.9;
+            opacity: 0.95;
             position: relative;
             z-index: 1;
             letter-spacing: 2px;
             font-weight: 300;
             max-width: 800px;
             margin: 0 auto;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.15);
         }
         
         .nav-tabs {
             border-bottom: none;
             padding: 0;
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             display: flex;
             justify-content: center;
             gap: 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
         
         .nav-tabs .nav-link {
-            color: rgba(255, 255, 255, 0.7);
+            color: #666;
             font-weight: 600;
             padding: 18px 35px;
             border: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             position: relative;
             background: transparent;
             font-size: 1.05rem;
             letter-spacing: 1px;
-            text-transform: uppercase;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         
         .nav-tabs .nav-link::before {
@@ -135,38 +163,43 @@
             left: 50%;
             width: 0;
             height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            background: linear-gradient(90deg, transparent, #ff6600, transparent);
             transform: translateX(-50%);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 0.3s ease;
         }
         
         .nav-tabs .nav-link:hover {
-            color: rgba(255, 255, 255, 0.95);
-            background: rgba(59, 130, 246, 0.1);
+            color: #ff6600;
+            background: rgba(255, 102, 0, 0.1);
+            text-shadow: 0 1px 3px rgba(255, 102, 0, 0.2);
         }
         
         .nav-tabs .nav-link.active {
-            color: #fff;
-            background: rgba(59, 130, 246, 0.15);
+            color: #ff6600;
+            background: rgba(255, 102, 0, 0.15);
+            text-shadow: 0 1px 3px rgba(255, 102, 0, 0.2);
         }
         
         .nav-tabs .nav-link.active::before {
             width: 80%;
+            box-shadow: 0 2px 10px rgba(255, 102, 0, 0.3);
         }
         
         .tab-content {
             padding: 50px;
-            background: transparent;
+            background: #ffffff;
+            background: linear-gradient(to bottom, rgba(255, 102, 0, 0.01) 0%, rgba(255, 140, 66, 0.005) 100%);
         }
         
         .tab-content h2 {
-            color: #fff;
+            color: #333;
             margin-bottom: 40px;
             font-size: 2.2rem;
             font-weight: 700;
             position: relative;
             padding-bottom: 15px;
             text-align: center;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         .tab-content h2::after {
@@ -177,48 +210,66 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            background: linear-gradient(90deg, transparent, #ff6600, transparent);
             border-radius: 2px;
         }
         
         .info-card {
-            background: rgba(30, 30, 30, 0.6);
+            background: #ffffff;
             padding: 25px;
             border-radius: 16px;
             margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-left: 4px solid #3b82f6;
+            border: 1px solid #eee;
+            border-left: 4px solid #ff6600;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 102, 0, 0.03) 0%, rgba(255, 140, 66, 0.01) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
         }
         
         .info-card:hover {
-            background: rgba(40, 40, 40, 0.7);
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 15px 30px rgba(255, 102, 0, 0.15);
+            border-color: rgba(255, 102, 0, 0.3);
+        }
+        
+        .info-card:hover::before {
+            opacity: 1;
         }
         
         .info-card h5 {
-            color: #3b82f6;
+            color: #ff6600;
             margin-bottom: 15px;
             font-size: 1.2rem;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 10px;
+            text-shadow: 0 1px 3px rgba(255, 102, 0, 0.2);
         }
         
         .info-card p {
-            color: rgba(255, 255, 255, 0.85);
+            color: #666;
             margin: 0;
             line-height: 1.7;
             font-size: 1.05rem;
         }
         
         .info-card ul {
-            color: rgba(255, 255, 255, 0.85);
+            color: #666;
             margin: 0;
             padding-left: 25px;
             line-height: 1.9;
@@ -230,37 +281,92 @@
         }
         
         .product-card {
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid #eee;
             border-radius: 18px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             margin-bottom: 30px;
             height: 100%;
-            background: rgba(25, 25, 25, 0.7);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            background: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .product-card:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-12px);
             box-shadow: 
-                0 25px 50px rgba(59, 130, 246, 0.3),
-                0 0 0 1px rgba(59, 130, 246, 0.4);
-            border-color: rgba(59, 130, 246, 0.5);
+                0 25px 40px rgba(255, 102, 0, 0.25),
+                0 0 0 1px rgba(255, 102, 0, 0.2);
+            border-color: rgba(255, 102, 0, 0.3);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .product-card:nth-child(1) .product-image {
+            animation-delay: 0.1s;
+        }
+        
+        .product-card:nth-child(2) .product-image {
+            animation-delay: 0.2s;
+        }
+        
+        .product-card:nth-child(3) .product-image {
+            animation-delay: 0.3s;
+        }
+        
+        .product-card:nth-child(4) .product-image {
+            animation-delay: 0.4s;
+        }
+        
+        .product-card:nth-child(5) .product-image {
+            animation-delay: 0.5s;
+        }
+        
+        .product-card:nth-child(6) .product-image {
+            animation-delay: 0.6s;
         }
         
         .product-img {
             width: 100%;
             height: 220px;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            background: linear-gradient(135deg, #ff6600 0%, #ff8c42 50%, #ff6600 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 3.5rem;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .product-img::before {
@@ -270,10 +376,10 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
             background-size: 30px 30px;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
         }
         
         .product-card:hover .product-img::before {
@@ -282,41 +388,53 @@
         
         .product-body {
             padding: 25px;
-            background: rgba(15, 15, 15, 0.5);
+            background: #ffffff;
         }
         
         .product-body h5 {
-            color: #fff;
+            color: #ff6600;
             margin-bottom: 15px;
             font-size: 1.4rem;
             font-weight: 700;
+            text-shadow: 0 1px 3px rgba(255, 102, 0, 0.2);
         }
         
         .product-body p {
-            color: rgba(255, 255, 255, 0.8);
+            color: #666;
             line-height: 1.7;
             font-size: 1.05rem;
         }
         
         .product-price {
-            color: #fbbf24;
+            color: #ff6600;
             font-size: 1.9rem;
             font-weight: 800;
             margin-bottom: 12px;
-            text-shadow: 0 2px 10px rgba(251, 191, 36, 0.2);
+            text-shadow: 0 2px 5px rgba(255, 102, 0, 0.2);
+            position: relative;
+        }
+        
+        .product-price::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff6600, transparent);
         }
         
         .scale-item {
-            background: rgba(30, 41, 59, 0.6);
-            border: 2px solid rgba(59, 130, 246, 0.2);
+            background: #ffffff;
+            border: 2px solid #eee;
             border-radius: 18px;
             padding: 35px;
             text-align: center;
             margin-bottom: 25px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .scale-item::before {
@@ -326,9 +444,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(55, 48, 163, 0.3) 100%);
+            background: linear-gradient(135deg, rgba(255, 102, 0, 0.1) 0%, rgba(255, 140, 66, 0.05) 50%, rgba(255, 102, 0, 0.1) 100%);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
             z-index: 0;
         }
         
@@ -337,9 +455,9 @@
         }
         
         .scale-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
-            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px rgba(255, 102, 0, 0.25);
+            border-color: rgba(255, 102, 0, 0.3);
         }
         
         .scale-item > * {
@@ -350,45 +468,47 @@
         .scale-number {
             font-size: 3.2rem;
             font-weight: 800;
-            color: #3b82f6;
-            transition: color 0.3s ease;
+            color: #ff6600;
+            transition: all 0.3s ease;
             margin-bottom: 12px;
-            text-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            text-shadow: 0 2px 10px rgba(255, 102, 0, 0.2);
         }
         
         .scale-item:hover .scale-number {
-            color: #bfdbfe;
+            color: #ff6600;
+            transform: scale(1.1);
         }
         
         .scale-item h5 {
-            color: rgba(255, 255, 255, 0.95);
+            color: #ff6600;
             margin-bottom: 10px;
             font-weight: 700;
             font-size: 1.3rem;
+            text-shadow: 0 1px 3px rgba(255, 102, 0, 0.2);
         }
         
         .scale-item p {
-            color: rgba(255, 255, 255, 0.8);
+            color: #666;
             margin: 0;
             font-size: 1.1rem;
         }
         
         .scale-item:hover p {
-            color: rgba(255, 255, 255, 0.95);
+            color: #333;
         }
         
         .benefit-item {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(55, 48, 163, 0.2) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: white;
+            background: #ffffff;
+            border: 1px solid #eee;
+            color: #333;
             padding: 30px;
             border-radius: 16px;
             margin-bottom: 25px;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #ff6600;
         }
         
         .benefit-item::before {
@@ -398,8 +518,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
+            transition: left 0.4s ease;
         }
         
         .benefit-item:hover::before {
@@ -407,10 +527,10 @@
         }
         
         .benefit-item:hover {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(55, 48, 163, 0.3) 100%);
-            transform: translateX(8px);
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.25);
-            border-color: rgba(59, 130, 246, 0.3);
+            background: #fff9f5;
+            transform: translateX(10px);
+            box-shadow: 0 15px 30px rgba(255, 102, 0, 0.25);
+            border-color: rgba(255, 102, 0, 0.3);
         }
         
         .benefit-item h5 {
@@ -420,26 +540,28 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            color: #ff6600;
+            text-shadow: 0 1px 3px rgba(255, 102, 0, 0.2);
         }
         
         .benefit-item p {
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
+            color: #666;
             font-size: 1.05rem;
         }
         
         .qrcode-section {
             text-align: center;
             padding: 50px;
-            background: rgba(20, 20, 20, 0.7);
+            background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 140, 66, 0.02) 100%);
             border-radius: 20px;
             margin: 40px 50px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 102, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
         
         .qrcode-section h4 {
-            color: #fff;
+            color: #333;
             margin-bottom: 30px;
             font-size: 1.6rem;
             font-weight: 700;
@@ -448,35 +570,33 @@
         .qrcode-box {
             display: inline-block;
             padding: 30px;
-            background: rgba(30, 30, 30, 0.8);
+            background: #ffffff;
             border-radius: 20px;
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.3),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+                0 10px 25px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 1px rgba(255, 102, 0, 0.1);
+            border: 1px solid rgba(255, 102, 0, 0.2);
             transition: all 0.3s ease;
         }
         
         .qrcode-box:hover {
-            transform: scale(1.03);
+            transform: scale(1.08);
             box-shadow: 
-                0 20px 45px rgba(59, 130, 246, 0.3),
-                inset 0 0 0 1px rgba(59, 130, 246, 0.3);
+                0 20px 35px rgba(255, 102, 0, 0.35),
+                inset 0 0 0 1px rgba(255, 102, 0, 0.3);
         }
         
         .qrcode-box p {
-            color: rgba(255, 255, 255, 0.85);
+            color: #666;
             font-size: 1.1rem;
         }
         
         .footer {
-            background: rgba(10, 10, 10, 0.9);
-            color: rgba(255, 255, 255, 0.7);
+            background: linear-gradient(to right, rgba(255, 102, 0, 0.05) 0%, rgba(255, 140, 66, 0.02) 100%);
+            color: #666;
             padding: 30px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 102, 0, 0.1);
         }
         
         .footer p {
@@ -651,15 +771,79 @@
                 font-size: 0.9rem;
             }
         }
+        
+        .company-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .company-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .info-card:nth-child(1) .company-image {
+            animation-delay: 0.1s;
+        }
+        
+        .info-card:nth-child(2) .company-image {
+            animation-delay: 0.2s;
+        }
+        
+        .info-card:hover .company-image {
+            transform: scale(1.05);
+        }
+        
+        .scale-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scale-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .info-card:nth-child(1) .scale-image {
+            animation-delay: 0.1s;
+        }
+        
+        .info-card:nth-child(2) .scale-image {
+            animation-delay: 0.2s;
+        }
+        
+        .info-card:hover .scale-image {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
     <div class="main-container">
+        <!-- <div class="banner-image-container">
+            <img src="./assest/image/white.jpg" alt="优质兔业养殖公司" class="banner-image">
+            <div class="banner-overlay"></div>
+        </div> -->
         <div class="header">
             <h1>🐰 优质兔业养殖公司</h1>
             <p>专业养殖 · 品质保证 · 健康美味</p>
+            <img src="./assest/image/white.jpg" alt="优质兔业养殖公司" class="header-bg-image">
         </div>
-        
         <ul class="nav nav-tabs" id="mainTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="intro-tab" data-bs-toggle="tab" data-bs-target="#intro" type="button" role="tab">
@@ -717,6 +901,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="company-image-container">
+                                <img src="./assest/image/7.png" alt="公司养殖场" class="company-image">
+                            </div>
+                            <h5>🏭 现代化养殖场</h5>
+                            <p>我们的养殖场采用现代化管理模式，确保每只兔子都能在最适宜的环境中健康成长。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="company-image-container">
+                                <img src="./assest/image/8.png" alt="优质兔肉产品" class="company-image">
+                            </div>
+                            <h5>🏆 优质产品</h5>
+                            <p>经过严格的质量检测，我们的兔肉产品获得了多项食品安全认证，品质有保障。</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="info-card mt-3">
                     <h5>📜 公司介绍</h5>
                     <p>优质兔业养殖有限公司成立于2015年，是一家集兔子养殖、加工、销售为一体的现代化农业企业。公司拥有先进的养殖技术和完善的管理体系，致力于为消费者提供健康、安全、优质的兔肉产品。我们坚持绿色养殖理念，采用科学的饲养方法，确保每一只兔子都在优质的环境中健康成长。</p>
@@ -730,7 +934,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="product-card">
-                            <div class="product-img">🐇</div>
+                            <div class="product-img">
+                                <img src="./assest/image/1.png" alt="新鲜兔肉" class="product-image">
+                            </div>
                             <div class="product-body">
                                 <h5>🌱 新鲜兔肉</h5>
                                 <p class="product-price">¥45/斤</p>
@@ -740,7 +946,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="product-card">
-                            <div class="product-img">🍲</div>
+                            <div class="product-img">
+                                <img src="./assest/image/2.png" alt="兔肉火锅套餐" class="product-image">
+                            </div>
                             <div class="product-body">
                                 <h5>🔥 兔肉火锅套餐</h5>
                                 <p class="product-price">¥128/套</p>
@@ -750,7 +958,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="product-card">
-                            <div class="product-img">🍖</div>
+                            <div class="product-img">
+                                <img src="./assest/image/3.png" alt="腊兔肉" class="product-image">
+                            </div>
                             <div class="product-body">
                                 <h5>🍂 腊兔肉</h5>
                                 <p class="product-price">¥88/斤</p>
@@ -760,7 +970,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="product-card">
-                            <div class="product-img">🍗</div>
+                            <div class="product-img">
+                                <img src="./assest/image/4.png" alt="兔腿" class="product-image">
+                            </div>
                             <div class="product-body">
                                 <h5>🍖 兔腿</h5>
                                 <p class="product-price">¥35/只</p>
@@ -770,7 +982,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="product-card">
-                            <div class="product-img">🥘</div>
+                            <div class="product-img">
+                                <img src="./assest/image/5.png" alt="兔肉丸" class="product-image">
+                            </div>
                             <div class="product-body">
                                 <h5>🍡 兔肉丸</h5>
                                 <p class="product-price">¥25/包</p>
@@ -780,7 +994,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="product-card">
-                            <div class="product-img">🌭</div>
+                            <div class="product-img">
+                                <img src="./assest/image/6.png" alt="兔肉香肠" class="product-image">
+                            </div>
                             <div class="product-body">
                                 <h5>🌶️ 兔肉香肠</h5>
                                 <p class="product-price">¥38/包</p>
@@ -814,6 +1030,26 @@
                             <div class="scale-number">200</div>
                             <h5>🌾 占地面积</h5>
                             <p>总占地面积200余亩</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="scale-image-container">
+                                <img src="./assest/image/9.png" alt="养殖基地分布图" class="scale-image">
+                            </div>
+                            <h5>🗺️ 基地分布</h5>
+                            <p>我们的养殖基地遍布山东、河北等多个地区，形成了完善的养殖网络，确保产品供应稳定。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="scale-image-container">
+                                <img src="./assest/image/white.jpg" alt="现代化养殖设备" class="scale-image">
+                            </div>
+                            <h5>⚙️ 现代化设备</h5>
+                            <p>引进国际先进的自动化养殖设备，实现精准饲喂、环境控制和疫病防控。</p>
                         </div>
                     </div>
                 </div>
@@ -889,6 +1125,16 @@
                 }
             );
             
+            // 公司图片悬停效果
+            $('.info-card').hover(
+                function() {
+                    $(this).find('.company-image, .scale-image').css('transform', 'scale(1.05)');
+                },
+                function() {
+                    $(this).find('.company-image, .scale-image').css('transform', 'scale(1)');
+                }
+            );
+            
             // 养殖规模数字动画
             $('.scale-number').each(function() {
                 $(this).prop('Counter', 0).animate({
@@ -905,6 +1151,13 @@
                     }
                 });
             });
+            
+            // 初始化图片动画
+            setTimeout(function() {
+                $('.product-image, .company-image, .scale-image, .banner-image').each(function(index) {
+                    $(this).css('animation-delay', (index * 0.1) + 's');
+                });
+            }, 100);
             
             console.log('优质兔业养殖公司网站已加载完成！');
         });
