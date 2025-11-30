@@ -20,3 +20,12 @@
 - 优秀的用户体验
 
 © 2025 优质兔业养殖有限公司
+
+
+https://rabbit-farm.github.io/localHtmlQrcode  二维码地址
+https://github.com/rabbit-farm/localHtmlQrcode  项目地址
+
+rabbit-farm  git账号
+han980708    git密码
+
+
